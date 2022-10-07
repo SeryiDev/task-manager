@@ -1,0 +1,19 @@
+<!-- Preset for the main menu -->
+<ion-menu side="start" menuId="mainMenu" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item [routerLink]="['/home']"><ion-icon slot="start" name="home-outline"></ion-icon>Home</ion-item>
+        <ion-item [routerLink]="['/person-management']"><ion-icon slot="start" name="person-outline"></ion-icon>Person management</ion-item>
+        <ion-item [routerLink]="['/task-management']"><ion-icon slot="start" name="book-outline"></ion-icon>Task management</ion-item>
+        <ion-item [routerLink]="['/task-assignment']"><ion-icon slot="start" name="newspaper-outline"></ion-icon>Task assignment</ion-item>
+        <ion-item [routerLink]="['/assigned-tasks']"><ion-icon slot="start" name="newspaper-outline"></ion-icon>Assigned tasks</ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>

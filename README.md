@@ -12,7 +12,8 @@ Both tasks and people can be created, modified and deleted from the application.
 - Download the `source code .zip`.
 - Execute the command `npm install` inside the repository you downloaded.
 - Done! The project is ready to be opened with `ionic serve` or `ionic serve --lab` in your preferred IDE.
-# Releases
+# 📑 Releases
 ## Version 1.0 ➡️ Release date 07/10/2022
 - All pages created.
 - Menu and routing added to all pages.
+# 🔧 Bug Fixes

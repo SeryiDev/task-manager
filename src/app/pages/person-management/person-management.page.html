@@ -12,5 +12,7 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card *ngFor="let person of getPeopleList()">
+    <ion-title>{{person.name}} {{person.surname}}</ion-title>
+  </ion-card>
 </ion-content>

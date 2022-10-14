@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { Person } from 'src/app/models/person';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
@@ -8,7 +10,10 @@ import { PersonService } from 'src/app/services/person.service';
 })
 export class PersonManagementPage implements OnInit {
 
-  constructor(private personService: PersonService) { }
+  constructor(
+    private personService: PersonService, 
+    private alertController: AlertController
+    ) { }
 
   ngOnInit() {
   }
@@ -18,6 +23,37 @@ export class PersonManagementPage implements OnInit {
   }
 
   getPerson(id: number) {
-    return this.personService.getPerson(id);
+    return this.personService.getPersonById(id);
+  }
+
+  addPerson(person: Person) {
+    return this.personService.addPerson(person);
+  }
+
+  deletePersonById(id: number) {
+    return this.personService.deletePersonById(id);
+  }
+
+  async onDeleteAlert(person: Person) {
+    const alert = await this.alertController.create({
+      header: '¿Está seguro de eliminar la persona?',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          handler: () => {
+          },
+        },
+        {
+          text: 'Yes',
+          role: 'confirm',
+          handler: () => {
+            this.deletePersonById(person.id)
+          },
+        },
+      ],
+    });
+
+    await alert.present();
   }
 }

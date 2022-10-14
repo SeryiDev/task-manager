@@ -16,16 +16,23 @@
     <ion-row>
       <ion-col size="12">
         <ion-list *ngFor="let person of getPeopleList()">
-          <ion-item>
-            <ion-avatar slot="start" *ngIf="person.image">
-              <img [src]="person.image" />
-            </ion-avatar>
-            <!-- Default image -->
-            <ion-avatar slot="start" *ngIf="!person.image">
-              <img [src]="'https://imgs.search.brave.com/FYUF8XYrEVF1JKNurfYdQ4GUx9cEmoUU3qLwl6yZVb8/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly92aWdu/ZXR0ZS53aWtpYS5u/b2Nvb2tpZS5uZXQv/bG9nb3BlZGlhL2lt/YWdlcy9hL2EzL1Vu/a25vd24tMTUwMDU1/NzIxMS5wbmcvcmV2/aXNpb24vbGF0ZXN0/P2NiPTIwMTcwNzIw/MTMyNjUx'" />
-            </ion-avatar>
-            <ion-label>{{person.name}} "{{person.nickname}}" {{person.surname}}</ion-label>
-          </ion-item>
+          <ion-item-sliding>
+            <ion-item>
+              <ion-avatar slot="start" *ngIf="person.image">
+                <img [src]="person.image" />
+              </ion-avatar>
+              <!-- Default image -->
+              <ion-avatar slot="start" *ngIf="!person.image">
+                <img
+                  [src]="'https://imgs.search.brave.com/FYUF8XYrEVF1JKNurfYdQ4GUx9cEmoUU3qLwl6yZVb8/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly92aWdu/ZXR0ZS53aWtpYS5u/b2Nvb2tpZS5uZXQv/bG9nb3BlZGlhL2lt/YWdlcy9hL2EzL1Vu/a25vd24tMTUwMDU1/NzIxMS5wbmcvcmV2/aXNpb24vbGF0ZXN0/P2NiPTIwMTcwNzIw/MTMyNjUx'"/>
+              </ion-avatar>
+              <ion-label>{{person.id}}, {{person.name}} "{{person.nickname}}" {{person.surname}}</ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="primary">Modify</ion-item-option>
+              <ion-item-option color="danger" (click)="onDeleteAlert(person)">Delete</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
         </ion-list>
       </ion-col>
     </ion-row>

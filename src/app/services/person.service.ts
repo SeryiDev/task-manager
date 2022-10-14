@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Person } from '../models/person.model';
+import { Person } from '../models/person';
 
 @Injectable({
   providedIn: 'root'
@@ -70,13 +70,34 @@ export class PersonService {
     }
   ]
 
+  id: number = this._peopleList.length + 1
+
   constructor() { }
 
   getPeopleList() {
     return this._peopleList;
   }
 
-  getPerson(id: number) {
-    return this.getPeopleList().find(p => p.id == id)
+  getPersonById(id: number) {
+    return this._peopleList.find(p => p.id == id)
+  }
+
+  addPerson(person: Person) {
+    person.id = this.id++
+    this._peopleList.push(person)
+  }
+
+  deletePersonById(id: number) {
+    this._peopleList = this._peopleList.filter(p => p.id != id)
+  }
+
+  updatePerson(person:Person){
+    var _person = this._peopleList.find(p => p.id == person.id);
+    if(_person) {
+      _person.name = person.name;
+      _person.surname = person.surname;
+      _person.nickname = person.nickname;
+      _person.image = person.image;
+    }
   }
 }

@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'person-info',
-    loadChildren: () => import('./pages/person-info/person-info.module').then( m => m.PersonInfoPageModule)
+    loadChildren: () => import('./pages/person-detail/person-info.module').then( m => m.PersonInfoPageModule)
   },
   {
     path: 'task-management',
@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'task-info',
-    loadChildren: () => import('./pages/task-info/task-info.module').then( m => m.TaskInfoPageModule)
+    loadChildren: () => import('./pages/task-detail/task-info.module').then( m => m.TaskInfoPageModule)
   },
   {
     path: 'task-assignment',

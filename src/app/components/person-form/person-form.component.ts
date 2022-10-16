@@ -38,7 +38,7 @@ export class PersonFormComponent {
   }
 
   onSubmit() {
-    this.modalController.dismiss({ person: this.form.value, mode: this.mode }, 'ok');
+    this.modalController.dismiss({ person: this.form.value, mode: this.mode });
   }
 
   onDismiss() {

@@ -11,6 +11,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 
+  <ion-button (click)="onNewTask()" shape="round">
+    <ion-icon slot="start" name="person-add"></ion-icon>Add task
+  </ion-button>
+
+  <ion-list *ngFor="let task of getTaskList()">
+    <ion-item-sliding>
+      <ion-item>
+        <ion-label>{{task.name}}. Time: {{task.timeInMs}}</ion-label>
+      </ion-item>
+      <!-- Slide options -->
+      <ion-item-options side="end">
+        <ion-item-option (click)="onEditTask(task)">
+          <ion-icon slot="top" name="create"></ion-icon>Modify
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="onDeleteAlert(task)">
+          <ion-icon slot="top" name="trash"></ion-icon>Delete
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

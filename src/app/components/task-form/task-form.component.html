@@ -1,0 +1,24 @@
+<!-- Header of the task formulary -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Content of the task formulary -->
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Task name</ion-label>
+      <ion-input type="text" placeholder="Enter a task name" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Time required</ion-label>
+      <ion-input type="number" placeholder="Enter time required" formControlName="timeInMs"></ion-input>
+    </ion-item>
+    <ion-button [disabled]="!form.valid" type="submit">{{mode=="New"?"Add":"Update"}}</ion-button>
+  </form>
+</ion-content>

@@ -12,7 +12,6 @@ import { PersonFormComponent } from 'src/app/components/person-form/person-form.
     CommonModule,
     FormsModule,
     IonicModule,
-    FormsModule,
     ReactiveFormsModule,
     PersonManagementPageRoutingModule
   ],

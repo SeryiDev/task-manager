@@ -26,4 +26,10 @@ Both tasks and people can be created, modified and deleted from the application.
 - Add people.
 - Update people.
 - Delete people.
+## Version 4.0 ➡️ Release date 16/10/2022
+- CRUD funcionality for the Task interface.
+- Visualize a list of all tasks.
+- Add tasks.
+- Update tasks.
+- Delete tasks.
 # 🔧 Bug Fixes

@@ -17,7 +17,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Time required</ion-label>
-      <ion-input type="number" placeholder="Enter time required" formControlName="timeInMs"></ion-input>
+      <ion-input type="number" placeholder="Enter time required" formControlName="timeInSeconds"></ion-input>
     </ion-item>
     <ion-button [disabled]="!form.valid" type="submit">{{mode=="New"?"Add":"Update"}}</ion-button>
   </form>

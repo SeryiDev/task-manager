@@ -10,12 +10,12 @@ export class TaskService {
     {
       id: 1,
       name: 'Wash the dishes',
-      timeInMs: 900000 
+      timeInSeconds: 900 
     },
     {
       id: 2,
       name: "Clean Sergio's room",
-      timeInMs: 3600000 
+      timeInSeconds: 3600 
     },
   ] 
 
@@ -44,7 +44,7 @@ export class TaskService {
     let updatedTask = this._taskList.find(p => p.id == task.id);
     if(updatedTask) {
       updatedTask.name = task.name;
-      updatedTask.timeInMs = task.timeInMs;
+      updatedTask.timeInSeconds = task.timeInSeconds;
     }
   }
 }

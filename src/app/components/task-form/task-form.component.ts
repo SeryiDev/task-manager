@@ -17,7 +17,7 @@ export class TaskFormComponent {
     if (task) {
       this.form.controls.id.setValue(task.id);
       this.form.controls.name.setValue(task.name);
-      this.form.controls.timeInMs.setValue(task.timeInMs);
+      this.form.controls.timeInSeconds.setValue(task.timeInSeconds);
       this.mode = "Edit";
     }
   }
@@ -29,7 +29,7 @@ export class TaskFormComponent {
     this.form = this.formBuilder.group({
       id: [null],
       name: ['', [Validators.required]],
-      timeInMs: ['', [Validators.required]],
+      timeInSeconds: ['', [Validators.required]],
     });
   }
 

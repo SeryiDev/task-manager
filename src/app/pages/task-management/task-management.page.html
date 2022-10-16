@@ -20,7 +20,7 @@
   <ion-list *ngFor="let task of getTaskList()">
     <ion-item-sliding>
       <ion-item>
-        <ion-label>{{task.name}}. Time: {{task.timeInMs}}</ion-label>
+        <ion-label>{{task.name}}. Time: {{task.timeInSeconds}}</ion-label>
       </ion-item>
       <!-- Slide options -->
       <ion-item-options side="end">

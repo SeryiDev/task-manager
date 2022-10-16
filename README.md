@@ -16,4 +16,14 @@ Both tasks and people can be created, modified and deleted from the application.
 ## Version 1.0 ➡️ Release date 07/10/2022
 - All pages created.
 - Menu and routing added to all pages.
+## Version 2.0 ➡️ Release date 11/10/2022
+- Person Service created.
+- List of people added manually into the service.
+- ngFor in People Management to visualize the people created.
+## Version 3.0 ➡️ Release date 16/10/2022
+- CRUD funcionality for the Person interface.
+- Visualize a list of all people.
+- Add people.
+- Update people.
+- Delete people.
 # 🔧 Bug Fixes

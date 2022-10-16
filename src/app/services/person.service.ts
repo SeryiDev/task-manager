@@ -91,13 +91,13 @@ export class PersonService {
     this._peopleList = this._peopleList.filter(p => p.id != id)
   }
 
-  updatePerson(person:Person){
-    var _person = this._peopleList.find(p => p.id == person.id);
-    if(_person) {
-      _person.name = person.name;
-      _person.surname = person.surname;
-      _person.nickname = person.nickname;
-      _person.image = person.image;
+  updatePerson(person:Person) {
+    let updatedPerson = this._peopleList.find(p => p.id == person.id);
+    if(updatedPerson) {
+      updatedPerson.name = person.name;
+      updatedPerson.surname = person.surname;
+      updatedPerson.nickname = person.nickname;
+      updatedPerson.image = person.image;
     }
   }
 }

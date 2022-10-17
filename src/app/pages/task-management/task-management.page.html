@@ -20,6 +20,9 @@
   <ion-list *ngFor="let task of getTaskList()">
     <ion-item-sliding>
       <ion-item>
+        <ion-avatar slot="start">
+          <img [src]="task.image" />
+        </ion-avatar>
         <ion-label>{{task.name}}. Time: {{task.timeInSeconds}}</ion-label>
       </ion-item>
       <!-- Slide options -->

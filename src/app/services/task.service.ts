@@ -10,12 +10,14 @@ export class TaskService {
     {
       id: 1,
       name: 'Wash the dishes',
-      timeInSeconds: 900 
+      timeInSeconds: 900,
+      image: 'http://drive.google.com/uc?export=view&id=1j98N9shfO5EpBVUL_Iy59C9Im2ZfQJib'
     },
     {
       id: 2,
       name: "Clean Sergio's room",
-      timeInSeconds: 3600 
+      timeInSeconds: 3600,
+      image: 'http://drive.google.com/uc?export=view&id=1wHBTkmkxsfsA22_J2Nd6ffspTAw8bcv9'
     },
   ] 
 

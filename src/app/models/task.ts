@@ -1,5 +1,6 @@
 export interface Task {
     id: number,
     name: string,
-    timeInSeconds: number
+    timeInSeconds: number,
+    image?: string
 }

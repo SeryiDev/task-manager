@@ -12,7 +12,7 @@ export class PersonService {
       name: 'Sergio', 
       surname: 'García', 
       nickname:'SeryiDev',
-      image: 'https://imgs.search.brave.com/Slwld_uZmt1XZjWrwlZtdlgPZJola-dViGxrLYb1KHA/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9jZG40/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvcGVvcGxlLWF2/YXRhci1mbGF0LTEv/NjQvZ2xhc3Nlc19i/dXNpbmVzc21hbl9w/ZW9wbGVfbWFsZV9t/YW5fYXZhdGFyX2Js/b25kZS01MTIucG5n'
+      image: 'http://drive.google.com/uc?export=view&id=1hypbmSb9Wfn-VIGLzXcwoQHXoD_AfyDI'
     },
     {
       id: 2, 

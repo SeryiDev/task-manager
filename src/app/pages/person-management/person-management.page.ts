@@ -67,6 +67,7 @@ export class PersonManagementPage {
 
   async onDeleteAlert(person: Person) {
     const alert = await this.alertController.create({
+      mode: 'ios',
       header: '¿Are you sure you want to delete ' + person.name + '?',
       buttons: [
         {

@@ -33,3 +33,9 @@ ion-button {
 ion-item-option {
     text-transform: none;
 }
+
+/** Font **/
+@font-face {
+    font-family: appFont;
+    src: url(assets/fonts/Ubuntu-Regular.ttf);
+}

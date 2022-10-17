@@ -67,6 +67,7 @@ export class TaskManagementPage {
 
   async onDeleteAlert(task: Task) {
     const alert = await this.alertController.create({
+      mode: 'ios',
       header: '¿Are you sure you want to delete this task?',
       buttons: [
         {

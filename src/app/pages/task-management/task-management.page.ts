@@ -3,6 +3,7 @@ import { AlertController, ModalController } from '@ionic/angular';
 import { TaskFormComponent } from 'src/app/components/task-form/task-form.component';
 import { Task } from 'src/app/models/task';
 import { TaskService } from 'src/app/services/task.service';
+import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/utils/screen';
 
 @Component({
   selector: 'app-task-management',
@@ -10,6 +11,9 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./task-management.page.scss'],
 })
 export class TaskManagementPage {
+
+  closeIfLowRes = isLowResSlide
+  isLowRes = isLowResolution
 
   constructor(
     private taskService: TaskService,

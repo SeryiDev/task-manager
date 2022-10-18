@@ -14,11 +14,11 @@
 <ion-content class="ion-padding">
 
   <ion-button (click)="onNewTask()" shape="round">
-    <ion-icon slot="start" name="add-circle-outline"></ion-icon>Add task
+    <ion-icon slot="start" name="add-circle-outline"></ion-icon>New task
   </ion-button>
 
   <ion-list *ngFor="let task of getTaskList()">
-    <ion-item-sliding>
+    <ion-item-sliding #sliding [disabled]="!closeIfLowRes(sliding)">
       <ion-item>
         <ion-avatar slot="start" *ngIf="task.image">
           <img [src]="task.image"/>
@@ -27,6 +27,15 @@
           <img [src]="'http://drive.google.com/uc?export=view&id=18Rw1K0F7vE9BqOtJh6qC8ii0cFyPlZfd'"/>
         </ion-avatar>
         <ion-label>{{task.name}}. Time: {{task.timeInSeconds}}</ion-label>
+
+        <ion-button *ngIf="!isLowRes()" (click)="onEditTask(task)" shape="round" fill="clear">
+          <ion-icon class="icon-high-res" color="medium" name="create"></ion-icon>
+        </ion-button>
+        
+        <ion-button *ngIf="!isLowRes()" (click)="onDeleteAlert(task)" shape="round" fill="clear">
+          <ion-icon class="icon-high-res" color="danger" name="trash"></ion-icon>
+        </ion-button>
+
       </ion-item>
       <!-- Slide options -->
       <ion-item-options side="end">

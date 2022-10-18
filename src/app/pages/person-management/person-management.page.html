@@ -14,20 +14,29 @@
 <ion-content class="ion-padding">
 
   <ion-button (click)="onNewPerson()" shape="round">
-    <ion-icon slot="start" name="person-add-outline"></ion-icon>Add person
+    <ion-icon slot="start" name="person-add-outline"></ion-icon>New person
   </ion-button>
 
   <ion-list *ngFor="let person of getPeopleList()">
-    <ion-item-sliding>
+    <ion-item-sliding #sliding [disabled]="!closeIfLowRes(sliding)">
       <ion-item>
         <ion-avatar slot="start" *ngIf="person.image">
           <img [src]="person.image" />
         </ion-avatar>
+
         <!-- Default image -->
         <ion-avatar slot="start" *ngIf="!person.image">
           <img [src]="'http://drive.google.com/uc?export=view&id=1CeHRfhK4YqedNKKxvNYHDEKuxIKIn771'"/>
         </ion-avatar>
+
         <ion-label>{{person.name}} "{{person.nickname}}" {{person.surname}}</ion-label>
+        <ion-button *ngIf="!isLowRes()" (click)="onEditPerson(person)" shape="round" fill="clear">
+          <ion-icon class="icon-high-res" color="medium" name="create"></ion-icon>
+        </ion-button>
+        
+        <ion-button *ngIf="!isLowRes()" (click)="onDeleteAlert(person)" shape="round" fill="clear">
+          <ion-icon class="icon-high-res" color="danger" name="trash"></ion-icon>
+        </ion-button>
       </ion-item>
       <!-- Slide options -->
       <ion-item-options side="end">

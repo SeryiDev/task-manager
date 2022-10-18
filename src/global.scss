@@ -39,3 +39,8 @@ ion-item-option {
     font-family: appFont;
     src: url(assets/fonts/Ubuntu-Regular.ttf);
 }
+
+/** Size of icons with res higher than 550px **/
+.icon-high-res {
+    font-size: 24px;
+}

@@ -3,7 +3,6 @@ import { AlertController, ModalController } from '@ionic/angular';
 import { PersonFormComponent } from 'src/app/core/components/person-form/person-form.component';
 import { Person } from 'src/app/core/models/person';
 import { PersonService } from 'src/app/core/services/person.service';
-import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/core/utils/screen';
 
 @Component({
   selector: 'app-person-management',
@@ -11,9 +10,6 @@ import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/ap
   styleUrls: ['./person-management.page.scss'],
 })
 export class PersonManagementPage {
-
-  closeIfLowRes = isLowResSlide
-  isLowRes = isLowResolution
 
   constructor(
     private personService: PersonService, 
@@ -63,6 +59,10 @@ export class PersonManagementPage {
 
   onEditPerson(person: Person) {
     this.presentPersonForm(person);
+  }
+
+  onDeletePerson(person: Person) {
+    this.onDeleteAlert(person);
   }
 
   deletePersonByID(id: number) {

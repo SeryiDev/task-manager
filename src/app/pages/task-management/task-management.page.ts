@@ -65,6 +65,10 @@ export class TaskManagementPage {
     this.presentTaskForm(task);
   }
 
+  onDeleteTask(task: Task) {
+    this.onDeleteAlert(task)
+  }
+
   deleteTaskByID(id: number) {
     return this.taskService.deleteTaskByID(id);
   }

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TaskManagementPageRoutingModule } from './task-management-routing.module';
 
 import { TaskManagementPage } from './task-management.page';
+import { TaskComponent } from 'src/app/core/components/task/task.component';
 import { TaskFormComponent } from 'src/app/core/components/task-form/task-form.component';
 
 @NgModule({
@@ -17,6 +18,6 @@ import { TaskFormComponent } from 'src/app/core/components/task-form/task-form.c
     ReactiveFormsModule,
     TaskManagementPageRoutingModule
   ],
-  declarations: [TaskManagementPage, TaskFormComponent]
+  declarations: [TaskManagementPage, TaskComponent, TaskFormComponent]
 })
 export class TaskManagementPageModule {}

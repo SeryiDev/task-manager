@@ -1,3 +1,4 @@
+<!-- Task Management Header -->
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -11,41 +12,19 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- Task Management Content -->
 <ion-content class="ion-padding">
-
+  <!-- Add new task -->
   <ion-button (click)="onNewTask()" shape="round">
     <ion-icon slot="start" name="add-circle-outline"></ion-icon>New task
   </ion-button>
-
-  <ion-list *ngFor="let task of getTasksList()">
-    <ion-item-sliding #sliding [disabled]="!closeIfLowRes(sliding)">
-      <ion-item>
-        <ion-avatar slot="start" *ngIf="task.image">
-          <img [src]="task.image"/>
-        </ion-avatar>
-        <ion-avatar slot="start" *ngIf="!task.image">
-          <img [src]="'http://drive.google.com/uc?export=view&id=18Rw1K0F7vE9BqOtJh6qC8ii0cFyPlZfd'"/>
-        </ion-avatar>
-        <ion-label>{{task.name}}. Time: {{task.timeInSeconds}}</ion-label>
-
-        <ion-button *ngIf="!isLowRes()" (click)="onEditTask(task)" shape="round" fill="clear">
-          <ion-icon class="icon-high-res" color="medium" name="create"></ion-icon>
-        </ion-button>
-        
-        <ion-button *ngIf="!isLowRes()" (click)="onDeleteAlert(task)" shape="round" fill="clear">
-          <ion-icon class="icon-high-res" color="danger" name="trash"></ion-icon>
-        </ion-button>
-
-      </ion-item>
-      <!-- Slide options -->
-      <ion-item-options side="end">
-        <ion-item-option (click)="onEditTask(task)">
-          <ion-icon slot="top" name="create"></ion-icon>Modify
-        </ion-item-option>
-        <ion-item-option color="danger" (click)="onDeleteAlert(task)">
-          <ion-icon slot="top" name="trash"></ion-icon>Delete
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
+  <!-- Tasks list -->
+  <ion-list>
+    <app-task 
+      *ngFor="let task of getTasksList()" 
+      [task]="task"
+      (onEdit)="onEditTask($event)"
+      (onDelete)="onDeleteTask($event)">
+    </app-task>
   </ion-list>
 </ion-content>

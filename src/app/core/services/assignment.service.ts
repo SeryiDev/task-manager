@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { Assignment } from '../models/assignment';
-import { PersonService } from './person.service';
-import { TaskService } from './task.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +13,20 @@ export class AssignmentService {
     {
       id: 1,
       personId: 1,
+      taskId: 1,
+      createdAt: this.momentjs().toISOString(),
+      dateTime: this.momentjs().add(1, 'days').toISOString()
+    },
+    {
+      id: 2,
+      personId: 1,
+      taskId: 2,
+      createdAt: this.momentjs().toISOString(),
+      dateTime: this.momentjs().add(1, 'days').toISOString()
+    },
+    {
+      id: 3,
+      personId: 2,
       taskId: 1,
       createdAt: this.momentjs().toISOString(),
       dateTime: this.momentjs().add(1, 'days').toISOString()
@@ -36,6 +48,4 @@ export class AssignmentService {
   deleteAssignmentByID(id: number) {
     this._assignmentsList = this._assignmentsList.filter(a => a.id != id)
   }
-
-  
 }

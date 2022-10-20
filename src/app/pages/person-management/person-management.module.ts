@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { PersonManagementPageRoutingModule } from './person-management-routing.module';
 
 import { PersonManagementPage } from './person-management.page';
+import { PersonComponent } from 'src/app/core/components/person/person.component';
 import { PersonFormComponent } from 'src/app/core/components/person-form/person-form.component';
 
 @NgModule({
@@ -15,6 +16,6 @@ import { PersonFormComponent } from 'src/app/core/components/person-form/person-
     ReactiveFormsModule,
     PersonManagementPageRoutingModule
   ],
-  declarations: [PersonManagementPage, PersonFormComponent]
+  declarations: [PersonManagementPage, PersonComponent, PersonFormComponent]
 })
 export class PersonManagementPageModule {}

@@ -16,24 +16,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/person-management/person-management.module').then( m => m.PersonManagementPageModule)
   },
   {
-    path: 'person-detail',
-    loadChildren: () => import('./pages/person-management/person-detail/person-info.module').then( m => m.PersonInfoPageModule)
-  },
-  {
     path: 'task-management',
     loadChildren: () => import('./pages/task-management/task-management.module').then( m => m.TaskManagementPageModule)
   },
   {
-    path: 'task-detail',
-    loadChildren: () => import('./pages/task-management/task-detail/task-info.module').then( m => m.TaskInfoPageModule)
+    path: 'assignment-management',
+    loadChildren: () => import('./pages/assignment-management/assignment-management.module').then( m => m.AssignmentManagementPageModule)
   },
   {
     path: 'assigned-tasks',
     loadChildren: () => import('./pages/assigned-tasks/assigned-tasks.module').then( m => m.AssignedTasksPageModule)
-  },
-  {
-    path: 'assignment-management',
-    loadChildren: () => import('./pages/assignment-management/assignment-management.module').then( m => m.AssignmentManagementPageModule)
   },
 
 ];

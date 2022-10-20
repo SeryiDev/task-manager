@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { TaskFormComponent } from 'src/app/components/task-form/task-form.component';
-import { Task } from 'src/app/models/task';
-import { TaskService } from 'src/app/services/task.service';
-import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/utils/screen';
+import { TaskFormComponent } from 'src/app/core/components/task-form/task-form.component';
+import { Task } from 'src/app/core/models/task';
+import { TaskService } from 'src/app/core/services/task.service';
+import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/core/utils/screen';
 
 @Component({
   selector: 'app-task-management',
@@ -21,12 +21,12 @@ export class TaskManagementPage {
     private modalController: ModalController
   ) { }
 
-  getTaskList() {
-    return this.taskService.getTaskList();
+  getTasksList() {
+    return this.taskService.getTasksList();
   }
 
   getTask(id: number) {
-    return this.taskService.getTaskById(id);
+    return this.taskService.getTaskByID(id);
   }
 
   addTask(task: Task) {
@@ -65,8 +65,8 @@ export class TaskManagementPage {
     this.presentTaskForm(task);
   }
 
-  deleteTaskById(id: number) {
-    return this.taskService.deleteTaskById(id);
+  deleteTaskByID(id: number) {
+    return this.taskService.deleteTaskByID(id);
   }
 
   async onDeleteAlert(task: Task) {
@@ -84,7 +84,7 @@ export class TaskManagementPage {
           text: 'Yes',
           role: 'confirm',
           handler: () => {
-            this.deleteTaskById(task.id)
+            this.deleteTaskByID(task.id)
           },
         },
       ],

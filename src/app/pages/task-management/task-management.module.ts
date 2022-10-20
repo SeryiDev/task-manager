@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TaskManagementPageRoutingModule } from './task-management-routing.module';
 
 import { TaskManagementPage } from './task-management.page';
-import { TaskFormComponent } from 'src/app/components/task-form/task-form.component';
+import { TaskFormComponent } from 'src/app/core/components/task-form/task-form.component';
 
 @NgModule({
   imports: [

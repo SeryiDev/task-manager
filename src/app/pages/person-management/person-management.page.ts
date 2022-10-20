@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { PersonFormComponent } from 'src/app/components/person-form/person-form.component';
-import { Person } from 'src/app/models/person';
-import { PersonService } from 'src/app/services/person.service';
-import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/utils/screen';
+import { PersonFormComponent } from 'src/app/core/components/person-form/person-form.component';
+import { Person } from 'src/app/core/models/person';
+import { PersonService } from 'src/app/core/services/person.service';
+import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/core/utils/screen';
 
 @Component({
   selector: 'app-person-management',
@@ -26,7 +26,7 @@ export class PersonManagementPage {
   }
 
   getPerson(id: number) {
-    return this.personService.getPersonById(id);
+    return this.personService.getPersonByID(id);
   }
 
   addPerson(person: Person) {
@@ -65,8 +65,8 @@ export class PersonManagementPage {
     this.presentPersonForm(person);
   }
 
-  deletePersonById(id: number) {
-    return this.personService.deletePersonById(id);
+  deletePersonByID(id: number) {
+    return this.personService.deletePersonByID(id);
   }
 
   async onDeleteAlert(person: Person) {
@@ -84,7 +84,7 @@ export class PersonManagementPage {
           text: 'Yes',
           role: 'confirm',
           handler: () => {
-            this.deletePersonById(person.id)
+            this.deletePersonByID(person.id)
           },
         },
       ],

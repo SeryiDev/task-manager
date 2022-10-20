@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { PersonManagementPageRoutingModule } from './person-management-routing.module';
 
 import { PersonManagementPage } from './person-management.page';
-import { PersonFormComponent } from 'src/app/components/person-form/person-form.component';
+import { PersonFormComponent } from 'src/app/core/components/person-form/person-form.component';
 
 @NgModule({
   imports: [

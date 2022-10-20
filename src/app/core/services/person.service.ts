@@ -78,7 +78,7 @@ export class PersonService {
     return this._peopleList;
   }
 
-  getPersonById(id: number) {
+  getPersonByID(id: number) {
     return this._peopleList.find(p => p.id == id)
   }
 
@@ -87,7 +87,7 @@ export class PersonService {
     this._peopleList.push(person)
   }
 
-  deletePersonById(id: number) {
+  deletePersonByID(id: number) {
     this._peopleList = this._peopleList.filter(p => p.id != id)
   }
 

@@ -6,7 +6,7 @@ import { Task } from '../models/task';
 })
 export class TaskService {
 
-  private _taskList: Task[] = [
+  private _tasksList: Task[] = [
     {
       id: 1,
       name: 'Wash the dishes',
@@ -21,29 +21,29 @@ export class TaskService {
     },
   ] 
 
-  id: number = this._taskList.length + 1
+  id: number = this._tasksList.length + 1
 
   constructor() { }
 
-  getTaskList() {
-    return this._taskList;
+  getTasksList() {
+    return this._tasksList;
   }
 
-  getTaskById(id: number) {
-    return this._taskList.find(p => p.id == id)
+  getTaskByID(id: number) {
+    return this._tasksList.find(p => p.id == id)
   }
 
   addTask(task: Task) {
     task.id = this.id++
-    this._taskList.push(task)
+    this._tasksList.push(task)
   }
 
-  deleteTaskById(id: number) {
-    this._taskList = this._taskList.filter(p => p.id != id)
+  deleteTaskByID(id: number) {
+    this._tasksList = this._tasksList.filter(p => p.id != id)
   }
 
   updateTask(task: Task) {
-    let updatedTask = this._taskList.find(p => p.id == task.id);
+    let updatedTask = this._tasksList.find(p => p.id == task.id);
     if(updatedTask) {
       updatedTask.name = task.name;
       updatedTask.timeInSeconds = task.timeInSeconds;

@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-
+import { CoreModule } from 'src/app/core/core.module';
 import { AssignmentManagementPageRoutingModule } from './assignment-management-routing.module';
 import { AssignmentManagementPage } from './assignment-management.page';
-import { AssignmentComponent } from 'src/app/core/components/assignment/assignment.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    CoreModule,
     AssignmentManagementPageRoutingModule
   ],
-  declarations: [AssignmentManagementPage, AssignmentComponent]
+  declarations: [
+    AssignmentManagementPage
+  ]
 })
 export class AssignmentManagementPageModule {}

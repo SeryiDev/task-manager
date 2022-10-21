@@ -16,6 +16,8 @@
     <app-assignment 
       *ngFor="let assignment of getAssignmentList()"
       [assignment]="assignment"
+      [person]="getPersonAssigned(assignment.personId)"
+      [task]="getTaskAssigned(assignment.taskId)"
       (onEdit)="onEditAssignment($event)"
       (onDelete)="onDeleteAssignment($event)">
     </app-assignment>

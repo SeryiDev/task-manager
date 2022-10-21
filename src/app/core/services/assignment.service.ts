@@ -12,7 +12,7 @@ export class AssignmentService {
   private _assignmentsList: Assignment[] = [
     {
       id: 1,
-      personId: 1,
+      personId: 3,
       taskId: 1,
       createdAt: this.momentjs().toISOString(),
       dateTime: this.momentjs().add(1, 'days').toISOString()

@@ -32,4 +32,5 @@ Both tasks and people can be created, modified and deleted from the application.
 - Add tasks.
 - Update tasks.
 - Delete tasks.
-# 🔧 Bug Fixes
+# 🔧 Things to do
+- Implement Ion Skeleton Text

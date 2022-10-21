@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { PersonFormComponent } from 'src/app/core/components/person-form/person-form.component';
 import { Person } from 'src/app/core/models/person';
+import { AssignmentService } from 'src/app/core/services/assignment.service';
 import { PersonService } from 'src/app/core/services/person.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class PersonManagementPage {
   constructor(
     private personService: PersonService, 
     private alertController: AlertController,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private assignmentService: AssignmentService
     ) { }
 
   getPeopleList() {
@@ -62,7 +64,19 @@ export class PersonManagementPage {
   }
 
   onDeletePerson(person: Person) {
-    this.onDeleteAlert(person);
+    if(!this.hasAssignedTask(person.id)) {
+      this.onDeleteAlert(person);
+    }
+  }
+
+  hasAssignedTask(id: number) {
+    var result: boolean;
+    if(this.assignmentService.getAssignmentsList().find(a => a.personId == id))
+      result = true;
+    else {
+      result = false;
+    }
+    return result;
   }
 
   deletePersonByID(id: number) {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { TaskFormComponent } from 'src/app/core/components/task-form/task-form.component';
 import { Task } from 'src/app/core/models/task';
+import { AssignmentService } from 'src/app/core/services/assignment.service';
 import { TaskService } from 'src/app/core/services/task.service';
 import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/core/utils/screen';
 
@@ -18,7 +19,8 @@ export class TaskManagementPage {
   constructor(
     private taskService: TaskService,
     private alertController: AlertController,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private assignmentService: AssignmentService
   ) { }
 
   getTasksList() {
@@ -61,12 +63,24 @@ export class TaskManagementPage {
     this.presentTaskForm(null);
   }
 
-  onEditTask(task) {
+  onEditTask(task: Task) {
     this.presentTaskForm(task);
   }
 
   onDeleteTask(task: Task) {
-    this.onDeleteAlert(task)
+    if(!this.hasAssignedPerson(task.id)) {
+      this.onDeleteAlert(task)
+    }
+  }
+
+  hasAssignedPerson(id: number) {
+    var result: boolean;
+    if(this.assignmentService.getAssignmentsList().find(a => a.taskId == id))
+      result = true;
+    else {
+      result = false;
+    }
+    return result;
   }
 
   deleteTaskByID(id: number) {

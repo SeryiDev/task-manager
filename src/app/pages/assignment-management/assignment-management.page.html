@@ -13,9 +13,11 @@
 
 <ion-content>
   <ion-list>
-    <app-assignment *ngFor="let assignment of getAssignmentList()">
-
+    <app-assignment 
+      *ngFor="let assignment of getAssignmentList()"
+      [assignment]="assignment"
+      (onEdit)="onEditAssignment($event)"
+      (onDelete)="onDeleteAssignment($event)">
     </app-assignment>
   </ion-list>
-
 </ion-content>

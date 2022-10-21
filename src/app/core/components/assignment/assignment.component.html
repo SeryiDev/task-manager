@@ -1,15 +1,15 @@
 <!-- Data of one assignment -->
 <ion-item-sliding #sliding [disabled]="!closeIfLowRes(sliding)">
   <ion-item>
-    <ion-avatar slot="start" *ngIf="task.image">
-      <img [src]="task.image" />
-    </ion-avatar>
-
-    <!-- Default image -->
-    <ion-avatar slot="start" *ngIf="!task.image">
-      <img [src]="'http://drive.google.com/uc?export=view&id=1CeHRfhK4YqedNKKxvNYHDEKuxIKIn771'" />
-    </ion-avatar>
-    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Created at {{assignment.createdAt | date:'short'}}</ion-card-subtitle>
+        <ion-card-title>Taskname</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        PersonName is doing this task
+      </ion-card-content>
+    </ion-card>
 
     <ion-button *ngIf="!isLowRes()" (click)="onEditAssignment()" shape="round" fill="clear">
       <ion-icon class="icon-high-res" color="medium" name="create"></ion-icon>

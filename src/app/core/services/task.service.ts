@@ -27,21 +27,15 @@ export class TaskService {
     },
     {
       id: 4,
-      name: "Vacuum",
-      timeInSeconds: 1800,
-      image: 'http://drive.google.com/uc?export=view&id=1CaHV-KBivJOvbbxZc8v2M5GtkdDqFueI'
+      name: "Put the dish washer",
+      timeInSeconds: 300,
+      image: 'http://drive.google.com/uc?export=view&id=1N7qQRiQ13gewhqRnC_TFr6UiStKtvgn9'
     },
     {
       id: 5,
       name: "Put the washing machine",
       timeInSeconds: 300,
       image: 'http://drive.google.com/uc?export=view&id=1X5iO2pY4BiecX1224DRXCZOx8dpl_Rem'
-    },
-    {
-      id: 5,
-      name: "Clean the windows",
-      timeInSeconds: 600,
-      image: 'http://drive.google.com/uc?export=view&id=1WJ1rFKAVFm88u2D1ftgE4AmGaQOmL71Y'
     },
     {
       id: 6,
@@ -79,10 +73,10 @@ export class TaskService {
   }
 
   updateTask(task: Task) {
-    let updatedTask = this._tasksList.find(p => p.id == task.id);
-    if(updatedTask) {
-      updatedTask.name = task.name;
-      updatedTask.timeInSeconds = task.timeInSeconds;
+    let _task = this._tasksList.find(p => p.id == task.id);
+    if(_task) {
+      _task.name = task.name;
+      _task.timeInSeconds = task.timeInSeconds;
     }
   }
 }

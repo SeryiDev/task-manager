@@ -9,7 +9,8 @@
     <ion-avatar slot="start" *ngIf="!task.image">
       <img [src]="'http://drive.google.com/uc?export=view&id=18Rw1K0F7vE9BqOtJh6qC8ii0cFyPlZfd'" />
     </ion-avatar>
-    <ion-label>{{task.name}}. Time: {{task.timeInSeconds}}</ion-label>
+    <ion-label>{{task.name}}</ion-label>
+    <ion-label slot="end">{{task.timeInSeconds / 60}} minutes</ion-label>
 
     <ion-button *ngIf="!isLowRes()" (click)="onEditTask()" shape="round" fill="clear">
       <ion-icon class="icon-high-res" color="medium" name="create"></ion-icon>

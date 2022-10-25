@@ -42,10 +42,25 @@ export class AssignmentService {
   }
 
   getAssignmentByID(id: number) {
-    return this._assignmentsList.find(a => a.id == id)
+    return this._assignmentsList.find(a => a.id == id);
+  }
+
+  addAssignment(assignment: Assignment) {
+    assignment.id = this.id++;
+    this._assignmentsList.push(assignment);
   }
 
   deleteAssignmentByID(id: number) {
-    this._assignmentsList = this._assignmentsList.filter(a => a.id != id)
+    this._assignmentsList = this._assignmentsList.filter(a => a.id != id);
+  }
+
+  updateAssignment(assignment: Assignment) {
+    let _assignment = this._assignmentsList.find(a => a.id == assignment.id)
+    if(_assignment) {
+      _assignment.taskId = assignment.taskId;
+      _assignment.personId = assignment.personId;
+      _assignment.createdAt = assignment.createdAt;
+      _assignment.dateTime = assignment.dateTime;
+    }
   }
 }

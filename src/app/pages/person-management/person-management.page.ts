@@ -57,18 +57,26 @@ export class PersonManagementPage {
    * If the person have task assigned, a error message appears
    * @param person Person object to check the ID and pass it to the onDeleteAlert
    */
-  async onDeletePerson(person: Person) {
+  onDeletePerson(person: Person) {
     if (!this.hasAssignedTask(person.id)) {
       this.onDeleteAlert(person);
     } else {
-      const alert = await this.alertController.create({
-        mode: 'ios',
-        header: "Error, can't be deleted",
-        message: person.name + ' has one or more tasks assigned',
-        buttons: ['OK'],
-      });
-    await alert.present();
+      this.onPersonAssignedAlert(person)
     }
+  }
+
+  /**
+   * Error message for assigned people
+   * @param person 
+   */
+  async onPersonAssignedAlert(person: Person) {
+    const alert = await this.alertController.create({
+      mode: 'ios',
+      header: 'Error',
+      message: person.name + ' has one or more tasks assigned',
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 
   /**

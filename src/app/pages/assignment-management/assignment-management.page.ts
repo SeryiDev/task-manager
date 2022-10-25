@@ -75,7 +75,6 @@ export class AssignmentManagementPage implements OnInit {
         },
       ],
     });
-
     await alert.present();
   }
 }

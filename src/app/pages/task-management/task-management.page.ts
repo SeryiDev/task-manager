@@ -70,7 +70,23 @@ export class TaskManagementPage {
   onDeleteTask(task: Task) {
     if(!this.hasAssignedPerson(task.id)) {
       this.onDeleteAlert(task)
+    } else {
+      this.onTaskAssignedAlert(task)
     }
+  }
+
+  /**
+   * Error message for assigned tasks
+   * @param task 
+   */
+  async onTaskAssignedAlert(task: Task) {
+    const alert = await this.alertController.create({
+      mode: 'ios',
+      header: 'Error',
+      message: 'The task "' + task.name + '" has one or more people assigned',
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 
   hasAssignedPerson(id: number) {

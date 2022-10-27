@@ -4,7 +4,7 @@ import { PersonFormComponent } from 'src/app/core/components/person-form/person-
 import { Person } from 'src/app/core/models/person';
 import { AssignmentService } from 'src/app/core/services/assignment.service';
 import { PersonService } from 'src/app/core/services/person.service';
-import { isLowResolution } from 'src/app/core/utils/screen';
+import { isLowResolution } from 'src/app/utils/screen';
 
 @Component({
   selector: 'app-person-management',

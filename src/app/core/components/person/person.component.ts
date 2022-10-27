@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Person } from '../../models/person';
-import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/core/utils/screen';
+import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/utils/screen';
 import { ItemReorderEventDetail } from '@ionic/angular';
 
 @Component({

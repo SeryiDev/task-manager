@@ -11,18 +11,24 @@
 <!-- Content of the person formulary -->
 <ion-content class="ion-padding">
   <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <!-- Person name input -->
     <ion-item>
       <ion-label position="floating">Name</ion-label>
       <ion-input type="text" placeholder="Enter your name" formControlName="name"></ion-input>
     </ion-item>
+    <!-- Person surname input -->
     <ion-item>
       <ion-label position="floating">Surname</ion-label>
       <ion-input type="text" placeholder="Enter your surname" formControlName="surname"></ion-input>
     </ion-item>
+    <!-- Person nickname input -->
     <ion-item>
       <ion-label position="floating">Nickname</ion-label>
       <ion-input type="text" placeholder="Enter your nickname" formControlName="nickname"></ion-input>
     </ion-item>
-    <ion-button [disabled]="!form.valid" type="submit">{{mode=="New"?"Add":"Update"}}</ion-button>
+    <!-- Add or Modify button -->
+    <ion-button [disabled]="!form.valid" shape="round" type="submit">
+      <ion-icon class="add-or-update" slot="start" [name]="mode=='New'?'person-add-outline':'build-outline'"></ion-icon>{{mode=="New"?"Add":"Update"}}
+    </ion-button>
   </form>
 </ion-content>

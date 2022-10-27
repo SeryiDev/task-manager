@@ -14,17 +14,26 @@
 
 <!-- Task Management Content -->
 <ion-content class="ion-padding">
-  <!-- Add new task -->
-  <ion-button (click)="onNewTask()" shape="round">
-    <ion-icon slot="start" name="add-circle-outline"></ion-icon>New task
-  </ion-button>
   <!-- Tasks list -->
   <ion-list>
+    <ion-list-header>
+      <ion-label>Tasks List</ion-label>
+      <ion-button *ngIf="isLowRes()" (click)="onEditMode()" expand="block" fill="clear" shape="round">
+        <ion-icon slot="end" [name]="mode=='Normal'?'add':'remove'"></ion-icon>{{mode=="Normal"?"Normal":"Edit"}} mode
+      </ion-button>
+    </ion-list-header>
     <app-task 
       *ngFor="let task of getTasksList()" 
       [task]="task"
+      [mode]="mode"
       (onEdit)="onEditTask($event)"
       (onDelete)="onDeleteTask($event)">
     </app-task>
   </ion-list>
+  <!-- Fab Button Add New Task -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="onNewTask()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

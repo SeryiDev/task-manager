@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../models/task';
 import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/core/utils/screen';
 
@@ -7,23 +7,37 @@ import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/ap
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss'],
 })
-export class TaskComponent implements OnInit {
+export class TaskComponent {
 
   @Output() onEdit = new EventEmitter;
   @Output() onDelete = new EventEmitter;
-  @Input() task: Task
+  @Input() task: Task;
+  @Input() mode: String;
   closeIfLowRes = isLowResSlide
   isLowRes = isLowResolution
 
   constructor() { }
 
-  ngOnInit() {}
-
+  /**
+   * Event that emits the Task object to the father to update it
+   */
   onEditTask() {
     this.onEdit.emit(this.task)
   }
 
+  /**
+   * Event that emits the Task object to the father to delete it
+   */
   onDeleteTask() {
     this.onDelete.emit(this.task)
+  }
+
+  /**
+   * 
+   * @param ev DONT WORK
+   */
+  handleReorder(ev) {
+    console.log(`Moving item from ${ev.detail.from} to ${ev.detail.to}`);
+    ev.detail.complete();
   }
 }

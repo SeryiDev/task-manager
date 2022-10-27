@@ -15,6 +15,7 @@ export class TaskManagementPage {
 
   closeIfLowRes = isLowResSlide
   isLowRes = isLowResolution
+  mode: "Normal" | "Edit" | "Organize" = "Normal";
 
   constructor(
     private taskService: TaskService,
@@ -125,5 +126,15 @@ export class TaskManagementPage {
     });
 
     await alert.present();
+  }
+
+  onEditMode() {
+    if(this.mode == "Normal") {
+      this.mode = "Edit"
+    } else if(this.mode == "Edit") {
+      this.mode = "Organize"
+    } else {
+      this.mode = "Normal"
+    }
   }
 }

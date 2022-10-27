@@ -15,9 +15,6 @@ import { TaskService } from 'src/app/core/services/task.service';
 })
 export class AssignmentManagementPage {
 
-  person: Person;
-  task: Task;
-
   constructor(
     private assignmentService: AssignmentService,
     private personService: PersonService,

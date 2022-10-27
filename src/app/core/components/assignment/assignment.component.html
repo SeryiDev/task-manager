@@ -1,32 +1,17 @@
 <!-- Data of one assignment -->
-<ion-item-sliding #sliding [disabled]="!closeIfLowRes(sliding)">
-  <ion-item>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Created at {{assignment.createdAt | date:'short'}}</ion-card-subtitle>
-        <ion-card-subtitle>Starts at {{assignment.dateTime | date:'short'}}</ion-card-subtitle>
-        <ion-card-title>{{task.name}}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        {{person.name}} is doing this task
-      </ion-card-content>
-    </ion-card>
-
-    <ion-button *ngIf="!isLowRes()" (click)="onEditAssignment()" shape="round" fill="clear">
+<ion-item>
+  <ion-card [ngClass]="isLowRes?'card-low-res':'card-high-res'">
+    <ion-card-header>
+      <ion-card-subtitle>Created at {{ assignment.createdAt | date: "short" }}</ion-card-subtitle>
+      <ion-card-subtitle>Starts at {{ assignment.dateTime | date: "short" }}</ion-card-subtitle>
+      <ion-card-title>{{ task.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> {{ person.name }} is doing this task </ion-card-content>
+    <ion-button (click)="onEditAssignment()" shape="round" fill="clear">
       <ion-icon class="icon-high-res" color="medium" name="create"></ion-icon>
     </ion-button>
-    <ion-button *ngIf="!isLowRes()" (click)="onDeleteAssignment()" shape="round" fill="clear">
+    <ion-button (click)="onDeleteAssignment()" shape="round" fill="clear">
       <ion-icon class="icon-high-res" color="danger" name="trash"></ion-icon>
     </ion-button>
-  </ion-item>
-
-  <!-- Slide options -->
-  <ion-item-options side="end">
-    <ion-item-option (click)="onEditAssignment()">
-      <ion-icon slot="top" name="create"></ion-icon>Modify
-    </ion-item-option>
-    <ion-item-option color="danger" (click)="onDeleteAssignment()">
-      <ion-icon slot="top" name="trash"></ion-icon>Delete
-    </ion-item-option>
-  </ion-item-options>
-</ion-item-sliding>
+  </ion-card>
+</ion-item>

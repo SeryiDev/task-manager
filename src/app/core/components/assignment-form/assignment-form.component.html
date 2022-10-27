@@ -7,29 +7,37 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+<!-- Content of the assignment formulary -->
 <ion-content class="ion-padding">
-
+  <!-- Assignment form -->
   <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
-    <ion-datetime-button datetime="datetime"></ion-datetime-button>
-
-    <ion-modal [keepContentsMounted]="true">
-      <ng-template>
-        <ion-datetime doneText="Confirm" cancelText="Cancel" showDefaultButtons="true" preferWheel="true"
-          name="dateTime" id="datetime" (ionChange)="changeDate($event)"></ion-datetime>
-      </ng-template>
-    </ion-modal>
-
+    <!-- Person selector -->
     <ion-item>
-      <ion-select placeholder="Select a person..." okText="Ok" cancelText="Cancel" formControlName="personId">
+      <ion-select mode="ios" placeholder="Select a person..." okText="Confirm" cancelText="Cancel" formControlName="personId">
         <ion-select-option *ngFor="let person of peopleList" [value]="person.id">{{ person.name }}</ion-select-option>
       </ion-select>
     </ion-item>
-
+    <!-- Task selector -->
     <ion-item>
-      <ion-select placeholder="Select a task..." okText="Ok" cancelText="Cancel" formControlName="taskId">
+      <ion-select mode="ios" placeholder="Select a task..." okText="Confirm" cancelText="Cancel" formControlName="taskId">
         <ion-select-option *ngFor="let task of tasksList" [value]="task.id">{{ task.name }}</ion-select-option>
       </ion-select>
     </ion-item>
-    <ion-button [disabled]="!form.valid" type="submit">{{mode=="Edit"?"Update":"Add"}}</ion-button>
+    <!-- Date time selector -->
+    <ion-item>
+      <ion-label>Starts at:</ion-label>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime doneText="Confirm" cancelText="Cancel" showDefaultButtons="true" preferWheel="true"
+            name="dateTime" id="datetime" (ionChange)="changeDate($event)"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+    <!-- Add or Modify button -->
+    <ion-button [disabled]="!form.valid" shape="round" type="submit">
+      <ion-icon class="add-or-update" slot="start" [name]="mode=='New'?'add-circle-outline':'build-outline'"></ion-icon>{{mode=="New"?"Add":"Update"}}
+    </ion-button>
   </form>
 </ion-content>

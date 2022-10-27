@@ -74,23 +74,44 @@ export class PersonService {
 
   constructor() { }
 
+  /**
+   * Gets the people list
+   * @returns List of the Person object
+   */
   getPeopleList() {
     return this._peopleList;
   }
 
+  /**
+   * Finds the person with the ID passed by param
+   * @param id ID to find the person
+   * @returns Person object found by the ID
+   */
   getPersonByID(id: number) {
     return this._peopleList.find(p => p.id == id)
   }
 
+  /**
+   * Adds one person to the Person object list
+   * @param person Person object to add to the list
+   */
   addPerson(person: Person) {
     person.id = this.id++
     this._peopleList.push(person)
   }
 
+  /**
+   * Removes the person found with the ID passed by param
+   * @param id ID to filter the person
+   */
   deletePersonByID(id: number) {
     this._peopleList = this._peopleList.filter(p => p.id != id)
   }
 
+  /**
+   * Updates the data of the person found by the ID
+   * @param person Person object to update the data
+   */
   updatePerson(person:Person) {
     let _person = this._peopleList.find(p => p.id == person.id);
     if(_person) {

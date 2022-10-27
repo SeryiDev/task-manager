@@ -4,6 +4,7 @@ import { PersonFormComponent } from 'src/app/core/components/person-form/person-
 import { Person } from 'src/app/core/models/person';
 import { AssignmentService } from 'src/app/core/services/assignment.service';
 import { PersonService } from 'src/app/core/services/person.service';
+import { isLowResolution } from 'src/app/core/utils/screen';
 
 @Component({
   selector: 'app-person-management',
@@ -12,11 +13,12 @@ import { PersonService } from 'src/app/core/services/person.service';
 })
 export class PersonManagementPage {
 
+  isLowRes = isLowResolution
+  mode: "Normal" | "Edit" | "Organize" = "Normal";
+
   constructor(
-    // Services
     private personService: PersonService,
     private assignmentService: AssignmentService,
-    // Controllers
     private alertController: AlertController,
     private modalController: ModalController
   ) { }
@@ -147,5 +149,15 @@ export class PersonManagementPage {
       ],
     });
     await alert.present();
+  }
+
+  onEditMode() {
+    if(this.mode == "Normal") {
+      this.mode = "Edit"
+    } else if(this.mode == "Edit") {
+      this.mode = "Organize"
+    } else {
+      this.mode = "Normal"
+    }
   }
 }

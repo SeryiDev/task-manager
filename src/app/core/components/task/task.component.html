@@ -1,32 +1,35 @@
 <!-- Data of one task -->
-<ion-item-sliding #sliding [disabled]="!closeIfLowRes(sliding)">
+<ion-reorder-group [disabled]="mode!='Organize'" (ionItemReorder)="handleReorder($any($event))">
   <ion-item>
+    <!-- Task image -->
     <ion-avatar slot="start" *ngIf="task.image">
       <img [src]="task.image" />
     </ion-avatar>
-    
     <!-- Default image -->
     <ion-avatar slot="start" *ngIf="!task.image">
-      <img [src]="'http://drive.google.com/uc?export=view&id=18Rw1K0F7vE9BqOtJh6qC8ii0cFyPlZfd'" />
+      <img [src]="'../../../../assets/img/task.png'" />
     </ion-avatar>
-    <ion-label>{{task.name}}</ion-label>
-    <ion-label slot="end">{{task.timeInSeconds / 60}} minutes</ion-label>
-
+    <!-- Data -->
+    <ion-label>{{task.name}} {{task.timeInSeconds / 60}} minutes</ion-label>
+    <!-- Reorder disabled if not in Organize mode -->
+    <ion-item>
+      <ion-reorder [ngClass]="{disabled: mode!='Organize'}" slot="end"></ion-reorder>
+    </ion-item>
+    <!-- Edit Task -->
+    <ion-button *ngIf="mode == 'Edit'" (click)="onEditTask()" shape="round" fill="clear">
+      <ion-icon class="icon-high-res" color="medium" name="create"></ion-icon>
+    </ion-button>
+    <!-- Delete Task -->
+    <ion-button *ngIf="mode == 'Edit'" (click)="onDeleteTask()" shape="round" fill="clear">
+      <ion-icon class="icon-high-res" color="danger" name="close-outline"></ion-icon>
+    </ion-button>
+    <!-- Edit Task in High Resolution -->
     <ion-button *ngIf="!isLowRes()" (click)="onEditTask()" shape="round" fill="clear">
       <ion-icon class="icon-high-res" color="medium" name="create"></ion-icon>
     </ion-button>
+    <!-- Delete Task in High Resolution -->
     <ion-button *ngIf="!isLowRes()" (click)="onDeleteTask()" shape="round" fill="clear">
       <ion-icon class="icon-high-res" color="danger" name="trash"></ion-icon>
     </ion-button>
   </ion-item>
-
-  <!-- Slide options -->
-  <ion-item-options side="end">
-    <ion-item-option (click)="onEditTask()">
-      <ion-icon slot="top" name="create"></ion-icon>Modify
-    </ion-item-option>
-    <ion-item-option color="danger" (click)="onDeleteTask()">
-      <ion-icon slot="top" name="trash"></ion-icon>Delete
-    </ion-item-option>
-  </ion-item-options>
-</ion-item-sliding>
+</ion-reorder-group>

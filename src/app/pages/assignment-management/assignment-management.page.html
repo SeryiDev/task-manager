@@ -1,3 +1,4 @@
+<!-- Assignments Management Header -->
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -13,12 +14,11 @@
 
 <!-- Assignment Management Content -->
 <ion-content>
-  <!-- Add new assignment -->
-  <ion-button (click)="onNewAssignment()" shape="round">
-    <ion-icon slot="start" name="add-circle-outline"></ion-icon>New assignment
-  </ion-button>
   <!-- Assignments list -->
   <ion-list>
+    <ion-list-header>
+      <ion-label>Assignments List</ion-label>
+    </ion-list-header>
     <app-assignment 
       *ngFor="let assignment of getAssignmentsList()"
       [assignment]="assignment"
@@ -28,4 +28,10 @@
       (onDelete)="onDeleteAssignment($event)">
     </app-assignment>
   </ion-list>
+  <!-- Fab Button Add New Assignment -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="onNewAssignment()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

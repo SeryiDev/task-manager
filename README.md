@@ -44,3 +44,4 @@ Both tasks and people can be created, modified and deleted from the application.
 - Can't delete a person or task if it has an assignment.
 # 🔧 Things to do
 - Implement Ion Skeleton Text
+- Implement Ion Reorder

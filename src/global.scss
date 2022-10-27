@@ -28,10 +28,7 @@
 // Deletes all uppercases from buttons
 ion-button {
     text-transform: none;
-}
-
-ion-item-option {
-    text-transform: none;
+    font-weight: bold;
 }
 
 /** Font **/
@@ -40,7 +37,16 @@ ion-item-option {
     src: url(assets/fonts/Ubuntu-Regular.ttf);
 }
 
+* {
+    font-family: appFont !important;
+}
+
 /** Size of icons with res higher than 550px **/
-.icon-high-res {
+ion-icon.icon-high-res {
     font-size: 24px;
+}
+
+/** Stroke of add and update icons **/
+ion-icon.add-or-update {
+    --ionicon-stroke-width: 48px;
 }

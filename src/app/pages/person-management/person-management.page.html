@@ -14,17 +14,27 @@
 
 <!-- Person Management Content -->
 <ion-content class="ion-padding">
-  <!-- Add new person -->
-  <ion-button (click)="onNewPerson()" shape="round">
-    <ion-icon slot="start" name="person-add-outline"></ion-icon>New person
-  </ion-button>
   <!-- People list -->
   <ion-list>
-    <app-person 
-      *ngFor="let person of getPeopleList()" 
-      [person]="person" 
-      (onEdit)="onEditPerson($event)" 
+    <ion-list-header>
+      <ion-label>People List</ion-label>
+      <ion-button *ngIf="isLowRes()" (click)="onEditMode()" expand="block" fill="clear" shape="round">
+        <ion-icon slot="end" [name]="mode=='Normal'?'add':'remove'"></ion-icon>{{mode=="Normal"?"Normal":"Edit"}} mode
+      </ion-button>
+    </ion-list-header>
+    <app-person
+      *ngFor="let person of getPeopleList()"
+      [person]="person"
+      [peopleList]="getPeopleList()"
+      [mode]="mode"
+      (onEdit)="onEditPerson($event)"
       (onDelete)="onDeletePerson($event)">
     </app-person>
   </ion-list>
+  <!-- Fab Button Add New Person -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="onNewPerson()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

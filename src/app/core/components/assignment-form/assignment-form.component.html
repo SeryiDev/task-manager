@@ -1,0 +1,35 @@
+<!-- Header of the person formulary -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{mode=="New"?"Add assignment":"Modify assignment"}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime doneText="Confirm" cancelText="Cancel" showDefaultButtons="true" preferWheel="true"
+          name="dateTime" id="datetime" (ionChange)="changeDate($event)"></ion-datetime>
+      </ng-template>
+    </ion-modal>
+
+    <ion-item>
+      <ion-select placeholder="Select a person..." okText="Ok" cancelText="Cancel" formControlName="personId">
+        <ion-select-option *ngFor="let person of peopleList" value="{{person.id}}">{{ person.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-select placeholder="Select a task..." okText="Ok" cancelText="Cancel" formControlName="taskId">
+        <ion-select-option *ngFor="let task of tasksList" value="{{task.id}}">{{ task.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button [disabled]="!form.valid" type="submit">{{mode=="Edit"?"Update":"Add"}}</ion-button>
+  </form>
+</ion-content>

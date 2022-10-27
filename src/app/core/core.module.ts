@@ -7,6 +7,7 @@ import { PersonFormComponent } from './components/person-form/person-form.compon
 import { TaskComponent } from './components/task/task.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { AssignmentComponent } from './components/assignment/assignment.component';
+import { AssignmentFormComponent } from './components/assignment-form/assignment-form.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AssignmentComponent } from './components/assignment/assignment.componen
     PersonFormComponent, 
     TaskComponent,
     TaskFormComponent,
-    AssignmentComponent
+    AssignmentComponent,
+    AssignmentFormComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { AssignmentComponent } from './components/assignment/assignment.componen
     PersonFormComponent,
     TaskComponent,
     TaskFormComponent,
-    AssignmentComponent
+    AssignmentComponent,
+    AssignmentFormComponent
   ]
 })
 export class CoreModule { }

@@ -32,7 +32,7 @@ Both tasks and people can be created, modified and deleted from the application.
 - Add tasks.
 - Update tasks.
 - Delete tasks.
-## Version 5.0 ➡️ Release date XX/10/2022
+## Version 5.0 ➡️ Release date 28/10/2022
 - CRUD funcionality for the Assignment interface
 - Visualize a list of all assignments.
 - Add asignments.
@@ -40,8 +40,9 @@ Both tasks and people can be created, modified and deleted from the application.
 - Delete assignments.
 - All project structure changed.
 - Core module implemented.
-- Person and Task components created using Inputs, Outputs and EventEmitters.
+- Person and Task components remodelated using Inputs, Outputs and EventEmitters.
 - Can't delete a person or task if it has an assignment.
+- Style changed
 # 🔧 Things to do
 - Implement Ion Skeleton Text
 - Implement Ion Reorder

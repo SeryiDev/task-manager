@@ -19,7 +19,7 @@
     <ion-list-header>
       <ion-label>People List</ion-label>
       <ion-button *ngIf="isLowRes()" (click)="onEditMode()" expand="block" fill="clear" shape="round">
-        <ion-icon slot="end" [name]="mode=='Normal'?'add':'remove'"></ion-icon>{{mode=="Normal"?"Normal":"Edit"}} mode
+        <ion-icon slot="end" [name]="mode=='Normal'?'add':'remove'"></ion-icon>{{mode=="Normal"?"Normal":mode=="Edit"?'Edit':'Organize'}} mode
       </ion-button>
     </ion-list-header>
     <app-person

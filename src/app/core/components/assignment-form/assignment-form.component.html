@@ -13,17 +13,9 @@
   <!-- Assignment form -->
   <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
     <!-- Person selector -->
-    <ion-item>
-      <ion-select mode="ios" placeholder="Select a person..." okText="Confirm" cancelText="Cancel" formControlName="personId">
-        <ion-select-option *ngFor="let person of peopleList" [value]="person.id">{{ person.name }}</ion-select-option>
-      </ion-select>
-    </ion-item>
+    <app-person-selectable formControlName="personId"></app-person-selectable>
     <!-- Task selector -->
-    <ion-item>
-      <ion-select mode="ios" placeholder="Select a task..." okText="Confirm" cancelText="Cancel" formControlName="taskId">
-        <ion-select-option *ngFor="let task of tasksList" [value]="task.id">{{ task.name }}</ion-select-option>
-      </ion-select>
-    </ion-item>
+    <app-task-selectable formControlName="taskId"></app-task-selectable>
     <!-- Date time selector -->
     <ion-item>
       <ion-label>Starts at:</ion-label>

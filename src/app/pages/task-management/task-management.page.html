@@ -16,12 +16,14 @@
 <ion-content class="ion-padding">
   <!-- Tasks list -->
   <ion-list>
+    <!-- Tasks list header -->
     <ion-list-header>
       <ion-label>Tasks List</ion-label>
       <ion-button *ngIf="isLowRes()" (click)="onEditMode()" expand="block" fill="clear" shape="round">
-        <ion-icon slot="end" [name]="mode=='Normal'?'add':'remove'"></ion-icon>{{mode=="Normal"?"Normal":"Edit"}} mode
+        <ion-icon slot="end" [name]="mode=='Normal'?'add':'remove'"></ion-icon>{{mode=="Normal"?"Normal":mode=="Edit"?'Edit':'Organize'}} mode
       </ion-button>
     </ion-list-header>
+    <!-- Tasks data -->
     <app-task 
       *ngFor="let task of getTasksList()" 
       [task]="task"

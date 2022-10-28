@@ -18,7 +18,7 @@ export class PersonService {
       id: 2, 
       name: 'Hanane', 
       surname: 'Arrazouki',
-      nickname:'No nickname'
+      nickname:'Nose'
     },
     {
       id: 3, 
@@ -30,13 +30,13 @@ export class PersonService {
       id: 4, 
       name: 'Antonio', 
       surname: 'Suárez',
-      nickname:'No nickname'
+      nickname:'Toni'
     },
     {
       id: 5, 
       name: 'Gonzalo José', 
       surname: 'Salmerón',
-      nickname:'No nickname'
+      nickname:'Gonza'
     },
     {
       id: 6, 
@@ -48,25 +48,25 @@ export class PersonService {
       id: 7, 
       name: 'Adrián', 
       surname: 'Dueñas',
-      nickname:'No nickname'
+      nickname:'Rapao'
     },
     {
       id: 8, 
       name: 'Rubén', 
       surname: 'Díaz',
-      nickname:'No nickname'
+      nickname:'Pocholo'
     },
     {
       id: 9, 
       name: 'Natalia', 
       surname: 'Contreras',
-      nickname:'No nickname'
+      nickname:'Naty'
     },
     {
       id: 10, 
       name: 'Nesrin', 
       surname: 'Edwan',
-      nickname:'No nickname'
+      nickname:'Nisi'
     }
   ]
 

@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Person } from '../models/person';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PersonService {
+export class PersonService implements OnDestroy {
 
   private _peopleList: Person[] = [
     {
@@ -70,9 +71,15 @@ export class PersonService {
     }
   ]
 
+  private _peopleSubject: BehaviorSubject<Person[]> = new BehaviorSubject(this._peopleList);
+  public people$ = this._peopleSubject.asObservable();
   id: number = this._peopleList.length + 1
 
   constructor() { }
+
+  ngOnDestroy(): void {
+    this._peopleSubject.complete(); // Avoid leaks of data
+  }
 
   /**
    * Gets the people list
@@ -98,6 +105,7 @@ export class PersonService {
   addPerson(person: Person) {
     person.id = this.id++
     this._peopleList.push(person)
+    this._peopleSubject.next(this._peopleList)
   }
 
   /**
@@ -106,6 +114,7 @@ export class PersonService {
    */
   deletePersonByID(id: number) {
     this._peopleList = this._peopleList.filter(p => p.id != id)
+    this._peopleSubject.next(this._peopleList)
   }
 
   /**
@@ -120,5 +129,6 @@ export class PersonService {
       _person.nickname = person.nickname;
       _person.image = person.image;
     }
+    this._peopleSubject.next(this._peopleList)
   }
 }

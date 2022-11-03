@@ -23,9 +23,8 @@
       </ion-button>
     </ion-list-header>
     <app-person
-      *ngFor="let person of getPeopleList()"
+      *ngFor="let person of (getPeopleList() | async)"
       [person]="person"
-      [peopleList]="getPeopleList()"
       [mode]="mode"
       (onEdit)="onEditPerson($event)"
       (onDelete)="onDeletePerson($event)">

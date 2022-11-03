@@ -13,7 +13,6 @@ export class PersonComponent {
   @Output() onEdit = new EventEmitter;
   @Output() onDelete = new EventEmitter;
   @Input() person: Person;
-  @Input() peopleList: Person[]
   @Input() mode: String;
   closeIfLowRes = isLowResSlide
   isLowRes = isLowResolution

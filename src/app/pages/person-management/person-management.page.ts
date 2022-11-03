@@ -24,7 +24,7 @@ export class PersonManagementPage {
   ) { }
 
   getPeopleList() {
-    return this.personService.getPeopleList();
+    return this.personService.people$;
   }
 
   getPersonByID(id: number) {

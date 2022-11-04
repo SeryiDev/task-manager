@@ -1,0 +1,19 @@
+<!-- Accordion to select person for Assignment Form -->
+<ion-accordion-group #accordion>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ng-container *ngIf="dateTimeSelected != null">
+        <ion-label>{{dateTimeSelected | date:'short'}}</ion-label>
+      </ng-container>
+      <ion-label *ngIf="!dateTimeSelected">Select a new date</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+        <ion-datetime #datetime (ionChange)="onDateTimeChanged($event, accordion)">
+          <ion-buttons slot="buttons">
+          <ion-button color="danger" (click)="onCancel(datetime, accordion)">Cancel</ion-button>
+          <ion-button color="primary" (click)="onConfirm(datetime, accordion)">Confirm</ion-button>
+        </ion-buttons>
+      </ion-datetime>
+    </div>
+  </ion-accordion>
+</ion-accordion-group>

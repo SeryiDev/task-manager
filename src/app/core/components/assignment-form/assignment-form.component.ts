@@ -37,8 +37,8 @@ export class AssignmentFormComponent {
   ) {
     this.form = this.formBuilder.group({
       id: [null],
-      personId: ['', [Validators.required]],
-      taskId: ['', [Validators.required]],
+      personId: [-1, [Validators.min(1)]],
+      taskId: [-1, [Validators.min(1)]],
       createdAt: [''],
       dateTime: ['', [Validators.required]]
     });

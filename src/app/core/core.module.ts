@@ -10,6 +10,7 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
 import { TaskSelectableComponent } from './components/task-selectable/task-selectable.component';
 import { AssignmentComponent } from './components/assignment/assignment.component';
 import { AssignmentFormComponent } from './components/assignment-form/assignment-form.component';
+import { DateTimeSelectableComponent } from './components/date-time-selectable/date-time-selectable.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AssignmentFormComponent } from './components/assignment-form/assignment
     TaskFormComponent,
     TaskSelectableComponent,
     AssignmentComponent,
-    AssignmentFormComponent
+    AssignmentFormComponent,
+    DateTimeSelectableComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,8 @@ import { AssignmentFormComponent } from './components/assignment-form/assignment
     TaskFormComponent,
     TaskSelectableComponent,
     AssignmentComponent,
-    AssignmentFormComponent
+    AssignmentFormComponent,
+    DateTimeSelectableComponent
   ]
 })
 export class CoreModule { }

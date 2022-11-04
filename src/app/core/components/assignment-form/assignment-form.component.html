@@ -17,16 +17,7 @@
     <!-- Task selector -->
     <app-task-selectable formControlName="taskId"></app-task-selectable>
     <!-- Date time selector -->
-    <ion-item>
-      <ion-label>Starts at:</ion-label>
-      <ion-datetime-button datetime="datetime"></ion-datetime-button>
-      <ion-modal [keepContentsMounted]="true">
-        <ng-template>
-          <ion-datetime doneText="Confirm" cancelText="Cancel" showDefaultButtons="true" preferWheel="true"
-            name="dateTime" id="datetime" (ionChange)="changeDate($event)"></ion-datetime>
-        </ng-template>
-      </ion-modal>
-    </ion-item>
+    <app-date-time-selectable formControlName="dateTime"></app-date-time-selectable>
     <!-- Add or Modify button -->
     <ion-button [disabled]="!form.valid" shape="round" type="submit">
       <ion-icon class="add-or-update" slot="start" [name]="mode=='New'?'add-circle-outline':'build-outline'"></ion-icon>{{mode=="New"?"Add":"Update"}}

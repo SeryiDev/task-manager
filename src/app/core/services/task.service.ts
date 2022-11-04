@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Task } from '../models/task';
 
 @Injectable({
@@ -51,6 +52,8 @@ export class TaskService {
     }
   ]
 
+  private _tasksSubject: BehaviorSubject<Task[]> = new BehaviorSubject(this._tasksList);
+  public tasksList$ = this._tasksSubject.asObservable();
   id: number = this._tasksList.length + 1
 
   constructor() { }
@@ -68,7 +71,7 @@ export class TaskService {
    * @param id ID to find the task
    * @returns Task object found by the ID
    */
-  getTaskByID(id: number) {
+  getTaskById(id: number) {
     return this._tasksList.find(p => p.id == id)
   }
 
@@ -77,16 +80,18 @@ export class TaskService {
    * @param task Task object to add to the list
    */
   addTask(task: Task) {
-    task.id = this.id++
-    this._tasksList.push(task)
+    task.id = this.id++;
+    this._tasksList.push(task);
+    this._tasksSubject.next(this._tasksList);
   }
 
   /**
    * Removes the task found with the ID passed by param
    * @param id ID to filter the task
    */
-  deleteTaskByID(id: number) {
-    this._tasksList = this._tasksList.filter(p => p.id != id)
+  deleteTaskById(id: number) {
+    this._tasksList = this._tasksList.filter(p => p.id != id);
+    this._tasksSubject.next(this._tasksList);
   }
 
   /**
@@ -99,5 +104,6 @@ export class TaskService {
       _task.name = task.name;
       _task.timeInSeconds = task.timeInSeconds;
     }
+    this._tasksSubject.next(this._tasksList);
   }
 }

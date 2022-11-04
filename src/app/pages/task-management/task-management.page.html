@@ -25,7 +25,7 @@
     </ion-list-header>
     <!-- Tasks data -->
     <app-task 
-      *ngFor="let task of getTasksList()" 
+      *ngFor="let task of (getTasksList() | async)" 
       [task]="task"
       [mode]="mode"
       (onEdit)="onEditTask($event)"

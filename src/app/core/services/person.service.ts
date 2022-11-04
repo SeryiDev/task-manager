@@ -72,7 +72,7 @@ export class PersonService implements OnDestroy {
   ]
 
   private _peopleSubject: BehaviorSubject<Person[]> = new BehaviorSubject(this._peopleList);
-  public people$ = this._peopleSubject.asObservable();
+  public peopleList$ = this._peopleSubject.asObservable();
   id: number = this._peopleList.length + 1
 
   constructor() { }
@@ -94,7 +94,7 @@ export class PersonService implements OnDestroy {
    * @param id ID to find the person
    * @returns Person object found by the ID
    */
-  getPersonByID(id: number) {
+  getPersonById(id: number) {
     return this._peopleList.find(p => p.id == id)
   }
 

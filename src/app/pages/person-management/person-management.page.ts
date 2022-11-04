@@ -24,11 +24,11 @@ export class PersonManagementPage {
   ) { }
 
   getPeopleList() {
-    return this.personService.people$;
+    return this.personService.peopleList$;
   }
 
-  getPersonByID(id: number) {
-    return this.personService.getPersonByID(id);
+  getPersonById(id: number) {
+    return this.personService.getPersonById(id);
   }
 
   addPerson(person: Person) {

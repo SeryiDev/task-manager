@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import * as moment from 'moment';
+import { BehaviorSubject } from 'rxjs';
 import { Assignment } from '../models/assignment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AssignmentService {
+export class AssignmentService implements OnDestroy {
 
   momentjs: any = moment;
 
@@ -33,9 +34,15 @@ export class AssignmentService {
     }
   ]
 
+  private _assignmentSubject: BehaviorSubject<Assignment[]> = new BehaviorSubject(this._assignmentsList);
+  public assignmentsList$ = this._assignmentSubject.asObservable();
   id: number = this._assignmentsList.length + 1;
 
-  constructor() { }
+  constructor() {}
+
+  ngOnDestroy(): void {
+    this._assignmentSubject.complete(); // Avoid leaks of data
+  }
 
   /**
    * Gets the assignment list
@@ -50,7 +57,7 @@ export class AssignmentService {
    * @param id ID to find the assignment
    * @returns Assignment object found by the ID
    */
-  getAssignmentByID(id: number) {
+  getAssignmentById(id: number) {
     return this._assignmentsList.find(a => a.id == id);
   }
 
@@ -62,6 +69,7 @@ export class AssignmentService {
     assignment.id = this.id++;
     assignment.createdAt = this.momentjs().toISOString();
     this._assignmentsList.push(assignment);
+    this._assignmentSubject.next(this._assignmentsList)
   }
 
   /**
@@ -70,6 +78,7 @@ export class AssignmentService {
    */
   deleteAssignmentByID(id: number) {
     this._assignmentsList = this._assignmentsList.filter(a => a.id != id);
+    this._assignmentSubject.next(this._assignmentsList);
   }
 
   /**
@@ -84,5 +93,6 @@ export class AssignmentService {
       _assignment.createdAt = assignment.createdAt;
       _assignment.dateTime = assignment.dateTime;
     }
+    this._assignmentSubject.next(this._assignmentsList);
   }
 }

@@ -20,7 +20,7 @@
       <ion-label>Assignments List</ion-label>
     </ion-list-header>
     <app-assignment 
-      *ngFor="let assignment of getAssignmentsList()"
+      *ngFor="let assignment of (getAssignmentsList() | async)"
       [assignment]="assignment"
       [person]="getPersonAssigned(assignment.personId)"
       [task]="getTaskAssigned(assignment.taskId)"

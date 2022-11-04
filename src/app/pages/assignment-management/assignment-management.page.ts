@@ -21,28 +21,28 @@ export class AssignmentManagementPage {
     private taskService: TaskService,
     private alertController: AlertController,
     private modalController: ModalController
-    ) { }
+    ) {}
 
   getAssignmentsList() {
-    return this.assignmentService.getAssignmentsList();
+    return this.assignmentService.assignmentsList$;
   }
 
   /**
    * Gets the person assigned in the assignment list
-   * @param personID ID to get the person in the list
+   * @param personId ID to get the person in the list
    * @returns Person found by the ID
    */
-  getPersonAssigned(personID: number) {
-    return this.personService.getPersonByID(personID)
+  getPersonAssigned(personId: number) {
+    return this.personService.getPersonById(personId)
   }
 
   /**
    * Gets the task assigned in the assignment list
-   * @param taskID ID to get the task in the list
+   * @param taskId ID to get the task in the list
    * @returns Task found by the ID
    */
-  getTaskAssigned(taskID: number) {
-    return this.taskService.getTaskByID(taskID)
+  getTaskAssigned(taskId: number) {
+    return this.taskService.getTaskById(taskId)
   }
 
   deleteAssignmentByID(id: number) {

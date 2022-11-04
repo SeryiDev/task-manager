@@ -31,7 +31,7 @@ export class PersonSelectableComponent implements ControlValueAccessor{
    * @param personId ID of the person received by the assignment form
    */
   writeValue(personId: any): void {
-    this.personSelected = this.personService.getPersonByID(personId)
+    this.personSelected = this.personService.getPersonById(personId)
   }
 
   registerOnChange(fn: any): void {

@@ -31,7 +31,7 @@ export class TaskSelectableComponent implements ControlValueAccessor {
    * @param taskId ID of the task received by the assignment form
    */
   writeValue(taskId: any): void {
-    this.taskSelected = this.taskService.getTaskByID(taskId)
+    this.taskSelected = this.taskService.getTaskById(taskId)
   }
 
   registerOnChange(fn: any): void {

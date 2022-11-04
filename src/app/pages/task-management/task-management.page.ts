@@ -25,11 +25,11 @@ export class TaskManagementPage {
   ) { }
 
   getTasksList() {
-    return this.taskService.getTasksList();
+    return this.taskService.tasksList$;
   }
 
   getTask(id: number) {
-    return this.taskService.getTaskByID(id);
+    return this.taskService.getTaskById(id);
   }
 
   addTask(task: Task) {
@@ -100,8 +100,8 @@ export class TaskManagementPage {
     return result;
   }
 
-  deleteTaskByID(id: number) {
-    return this.taskService.deleteTaskByID(id);
+  deleteTaskById(id: number) {
+    return this.taskService.deleteTaskById(id);
   }
 
   async onDeleteAlert(task: Task) {
@@ -119,7 +119,7 @@ export class TaskManagementPage {
           text: 'Yes',
           role: 'confirm',
           handler: () => {
-            this.deleteTaskByID(task.id)
+            this.deleteTaskById(task.id)
           },
         },
       ],

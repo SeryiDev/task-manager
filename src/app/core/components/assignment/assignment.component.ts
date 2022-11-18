@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Assignment } from '../../models/assignment';
 import { Person } from '../../models/person';
 import { Task } from '../../models/task';
-import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/utils/screen';
+import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/core/utils/screen';
 
 @Component({
   selector: 'app-assignment',

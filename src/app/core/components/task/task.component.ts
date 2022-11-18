@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../models/task';
-import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/utils/screen';
+import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/core/utils/screen';
 
 @Component({
   selector: 'app-task',

@@ -15,6 +15,9 @@ import { DateTimeSelectableComponent } from './components/date-time-selectable/d
 // date
 import es from '@angular/common/locales/es'
 import en from '@angular/common/locales/en'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { createTranslateLoader } from './utils/translate';
 
 
 // date register
@@ -37,7 +40,15 @@ registerLocaleData(en)
     CommonModule,
     FormsModule,
     IonicModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory:(createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   exports: [
     CommonModule,
@@ -52,7 +63,8 @@ registerLocaleData(en)
     TaskSelectableComponent,
     AssignmentComponent,
     AssignmentFormComponent,
-    DateTimeSelectableComponent
+    DateTimeSelectableComponent,
+    HttpClientModule
   ],
   providers: [
     {

@@ -4,7 +4,7 @@ import { TaskFormComponent } from 'src/app/core/components/task-form/task-form.c
 import { Task } from 'src/app/core/models/task';
 import { AssignmentService } from 'src/app/core/services/assignment.service';
 import { TaskService } from 'src/app/core/services/task.service';
-import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/utils/screen';
+import { isLowResolution, isLowResolutionSliding as isLowResSlide } from 'src/app/core/utils/screen';
 
 @Component({
   selector: 'app-task-management',

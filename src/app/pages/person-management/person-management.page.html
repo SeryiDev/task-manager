@@ -4,7 +4,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Person Management</ion-title>
+    <ion-title>{{'menu.personManagement' | translate}}</ion-title>
     <ion-buttons slot="end">
       <!-- Menu preset from main-menu.component -->
       <ion-menu-button menu="main-menu" color="primary"></ion-menu-button>
@@ -17,9 +17,9 @@
   <!-- People list -->
   <ion-list>
     <ion-list-header>
-      <ion-label>People List</ion-label>
+      <ion-label>{{'personManagement.peopleList' | translate}}</ion-label>
       <ion-button *ngIf="isLowRes()" (click)="onEditMode()" expand="block" fill="clear" shape="round">
-        <ion-icon slot="end" [name]="mode=='Normal'?'add':'remove'"></ion-icon>{{mode=="Normal"?"Normal":mode=="Edit"?'Edit':'Organize'}} mode
+        <ion-icon slot="end" [name]="mode=='Normal'?'add':'remove'"></ion-icon>{{mode=="Normal"?('modal.normalMode' | translate):mode=="Edit"?('modal.editMode' | translate):('modal.organizeMode' | translate)}}
       </ion-button>
     </ion-list-header>
     <app-person

@@ -9,19 +9,19 @@
     <ion-list>
       <ion-menu-toggle>
         <ion-item [routerLink]="['/home']">
-          <ion-icon color="primary" slot="start" name="home-outline"></ion-icon>Home
+          <ion-icon color="primary" slot="start" name="home-outline"></ion-icon>{{'menu.home' | translate}}
         </ion-item>
         <ion-item [routerLink]="['/person-management']">
-          <ion-icon color="primary" slot="start" name="person-outline"></ion-icon>Person management
+          <ion-icon color="primary" slot="start" name="person-outline"></ion-icon>{{'menu.personManagement' | translate}}
         </ion-item>
         <ion-item [routerLink]="['/task-management']">
-          <ion-icon color="primary" slot="start" name="construct-outline"></ion-icon>Task management
+          <ion-icon color="primary" slot="start" name="construct-outline"></ion-icon>{{'menu.taskManagement' | translate}}
         </ion-item>
         <ion-item [routerLink]="['/assignment-management']">
-          <ion-icon color="primary" slot="start" name="clipboard-outline"></ion-icon>Assignment
+          <ion-icon color="primary" slot="start" name="clipboard-outline"></ion-icon>{{'menu.assignment' | translate}}
         </ion-item>
         <ion-item [routerLink]="['/assigned-tasks']">
-          <ion-icon color="primary" slot="start" name="id-card-outline"></ion-icon>Assigned tasks
+          <ion-icon color="primary" slot="start" name="id-card-outline"></ion-icon>{{'menu.assignedTasks' | translate}}
         </ion-item>
       </ion-menu-toggle>
     </ion-list>

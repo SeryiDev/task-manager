@@ -1,0 +1,44 @@
+{
+    "modal": {
+        "addPerson": "Añadir persona",
+        "addTask": "Añadir tarea",
+        "addBtn": "Añadir",
+        "modifyPerson": "Modificar persona",
+        "modifyTask": "Modificar tarea",
+        "modifyBtn": "Modificar",
+        "editMode": "Modo editar",
+        "organizeMode": "Modo organizar",
+        "normalMode": "Modo normal",
+        "close": "Cerrar"
+    },
+    "menu": {
+        "home": "Inicio",
+        "personManagement": "Gestión de personas",
+        "taskManagement": "Gestión de tareas",
+        "assignment": "Asignaciones",
+        "assignedTasks": "Tareas asignadas"
+    },
+    "personManagement": {
+        "peopleList": "Lista de personas",
+        "hasTasksAssigned": "tiene una o más tareas asignadas",
+        "onDeleteAlert": "¿Estás seguro de que quieres borrar a "
+    },
+    "taskManagement": {
+        "tasksList": "Lista de tareas",
+        "hasPeopleAssigned": "tiene una o más personas asignadas",
+        "onDeleteAlert": "¿Estás seguro de que quieres borrar esta tarea"
+    },
+    "assignment": {
+        "assignmentsList": "Lista de asignaciones"
+    },
+    "form": {
+        "person": {
+            "surname": "Apellidos",
+            "nickname": "Apodo"
+        },
+        "task": {
+            "timeReq": "Tiempo requerido"
+        },
+        "name": "Nombre"
+    }
+}

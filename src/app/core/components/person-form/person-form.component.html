@@ -1,9 +1,9 @@
 <!-- Header of the person formulary -->
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{mode=="New"?"Add person":"Modify person"}}</ion-title>
+    <ion-title>{{mode=="New"?('modal.addPerson' | translate):('modal.modifyPerson' | translate)}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="onDismiss()">Close</ion-button>
+      <ion-button (click)="onDismiss()">{{'modal.close' | translate}}</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,22 +13,22 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
     <!-- Person name input -->
     <ion-item>
-      <ion-label position="floating">Name</ion-label>
+      <ion-label position="floating">{{'form.name' | translate}}</ion-label>
       <ion-input type="text" placeholder="Enter your name" formControlName="name"></ion-input>
     </ion-item>
     <!-- Person surname input -->
     <ion-item>
-      <ion-label position="floating">Surname</ion-label>
+      <ion-label position="floating">{{'form.person.surname' | translate}}</ion-label>
       <ion-input type="text" placeholder="Enter your surname" formControlName="surname"></ion-input>
     </ion-item>
     <!-- Person nickname input -->
     <ion-item>
-      <ion-label position="floating">Nickname</ion-label>
+      <ion-label position="floating">{{'form.person.nickname' | translate}}</ion-label>
       <ion-input type="text" placeholder="Enter your nickname" formControlName="nickname"></ion-input>
     </ion-item>
     <!-- Add or Modify button -->
     <ion-button [disabled]="!form.valid" shape="round" type="submit">
-      <ion-icon class="add-or-update" slot="start" [name]="mode=='New'?'person-add-outline':'build-outline'"></ion-icon>{{mode=="New"?"Add":"Update"}}
+      <ion-icon class="add-or-update" slot="start" [name]="mode=='New'?'person-add-outline':'build-outline'"></ion-icon>{{mode=="New"?('modal.addBtn' | translate):('modal.modifyBtn' | translate)}}
     </ion-button>
   </form>
 </ion-content>

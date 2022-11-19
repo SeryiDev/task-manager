@@ -4,7 +4,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Assignment Management</ion-title>
+    <ion-title>{{'menu.assignment' | translate}}</ion-title>
     <ion-buttons slot="end">
       <!-- Menu preset from main-menu.component -->
       <ion-menu-button menu="main-menu" color="primary"></ion-menu-button>
@@ -17,7 +17,7 @@
   <!-- Assignments list -->
   <ion-list>
     <ion-list-header>
-      <ion-label>Assignments List</ion-label>
+      <ion-label>{{'assignment.assignmentsList' | translate}}</ion-label>
     </ion-list-header>
     <app-assignment 
       *ngFor="let assignment of (getAssignmentsList() | async)"

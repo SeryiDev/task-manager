@@ -1,0 +1,44 @@
+{
+    "modal": {
+        "addPerson": "Add person",
+        "addTask": "Add task",
+        "addBtn": "Add",
+        "modifyPerson": "Modify person",
+        "modifyTask": "Modify task",
+        "modifyBtn": "Update",
+        "editMode": "Edit mode",
+        "organizeMode": "Organize mode",
+        "normalMode": "Normal mode",
+        "close": "Close"
+    },
+    "menu": {
+        "home": "Home",
+        "personManagement": "Person Management",
+        "taskManagement": "Task Management",
+        "assignment": "Assignment",
+        "assignedTasks": "Assigned Tasks"
+    },
+    "personManagement": {
+        "peopleList": "People List",
+        "hasTasksAssigned": "has one or more tasks assigned",
+        "onDeleteAlert": "Are you sure you want to delete "
+    },
+    "taskManagement": {
+        "tasksList": "Tasks List",
+        "hasPeopleAssigned": "has one or more people assigned",
+        "onDeleteAlert": "Are you sure you want to delete this task"
+    },
+    "assignment": {
+        "assignmentsList": "Assignments List"
+    },
+    "form": {
+        "person": {
+            "surname": "Surname",
+            "nickname": "Nickname"
+        },
+        "task": {
+            "timeReq": "Required time"
+        },
+        "name": "Name"
+    }
+}
